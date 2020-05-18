@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,9 +13,12 @@
 		A747B03B2471C1600017AF0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A747B0392471C1600017AF0C /* Main.storyboard */; };
 		A747B03D2471C1640017AF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A747B03C2471C1640017AF0C /* Assets.xcassets */; };
 		A747B0402471C1640017AF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A747B03E2471C1640017AF0C /* LaunchScreen.storyboard */; };
+		A747B0492472A7440017AF0C /* animated in Resources */ = {isa = PBXBuildFile; fileRef = A747B0482472A7440017AF0C /* animated */; };
+		C8C200F8DC1D77A93B45878B /* Pods_weatherBOT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C346BA9A644804B8A0C139 /* Pods_weatherBOT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06C346BA9A644804B8A0C139 /* Pods_weatherBOT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherBOT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A747B0302471C1600017AF0C /* weatherBOT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weatherBOT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A747B0332471C1600017AF0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A747B0352471C1600017AF0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		A747B03C2471C1640017AF0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A747B03F2471C1640017AF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A747B0412471C1640017AF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A747B0482472A7440017AF0C /* animated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = animated; sourceTree = "<group>"; };
+		D09EAF75639C04C025C9252E /* Pods-weatherBOT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherBOT.release.xcconfig"; path = "Target Support Files/Pods-weatherBOT/Pods-weatherBOT.release.xcconfig"; sourceTree = "<group>"; };
+		F5CAA2A9B0B558FF31690480 /* Pods-weatherBOT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherBOT.debug.xcconfig"; path = "Target Support Files/Pods-weatherBOT/Pods-weatherBOT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C200F8DC1D77A93B45878B /* Pods_weatherBOT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E117746D2D02A3C3BF90E3D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06C346BA9A644804B8A0C139 /* Pods_weatherBOT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A747B0272471C1600017AF0C = {
 			isa = PBXGroup;
 			children = (
 				A747B0322471C1600017AF0C /* weatherBOT */,
 				A747B0312471C1600017AF0C /* Products */,
+				DEC8709FC7FC055F98E5C3DE /* Pods */,
+				1E117746D2D02A3C3BF90E3D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +76,30 @@
 				A747B0332471C1600017AF0C /* AppDelegate.swift */,
 				A747B0352471C1600017AF0C /* SceneDelegate.swift */,
 				A747B0372471C1600017AF0C /* ViewController.swift */,
+				A747B0472472A7200017AF0C /* Resources */,
 				A747B0392471C1600017AF0C /* Main.storyboard */,
 				A747B03C2471C1640017AF0C /* Assets.xcassets */,
 				A747B03E2471C1640017AF0C /* LaunchScreen.storyboard */,
 				A747B0412471C1640017AF0C /* Info.plist */,
 			);
 			path = weatherBOT;
+			sourceTree = "<group>";
+		};
+		A747B0472472A7200017AF0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A747B0482472A7440017AF0C /* animated */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DEC8709FC7FC055F98E5C3DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F5CAA2A9B0B558FF31690480 /* Pods-weatherBOT.debug.xcconfig */,
+				D09EAF75639C04C025C9252E /* Pods-weatherBOT.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A747B0442471C1640017AF0C /* Build configuration list for PBXNativeTarget "weatherBOT" */;
 			buildPhases = (
+				26A2EFDD4BD8A5830C199C5B /* [CP] Check Pods Manifest.lock */,
 				A747B02C2471C1600017AF0C /* Sources */,
 				A747B02D2471C1600017AF0C /* Frameworks */,
 				A747B02E2471C1600017AF0C /* Resources */,
+				2FB7D75F7EDA52FCC629858E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -128,10 +165,53 @@
 				A747B0402471C1640017AF0C /* LaunchScreen.storyboard in Resources */,
 				A747B03D2471C1640017AF0C /* Assets.xcassets in Resources */,
 				A747B03B2471C1600017AF0C /* Main.storyboard in Resources */,
+				A747B0492472A7440017AF0C /* animated in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		26A2EFDD4BD8A5830C199C5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-weatherBOT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FB7D75F7EDA52FCC629858E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-weatherBOT/Pods-weatherBOT-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-weatherBOT/Pods-weatherBOT-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-weatherBOT/Pods-weatherBOT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A747B02C2471C1600017AF0C /* Sources */ = {
@@ -282,6 +362,7 @@
 		};
 		A747B0452471C1640017AF0C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5CAA2A9B0B558FF31690480 /* Pods-weatherBOT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +380,7 @@
 		};
 		A747B0462471C1640017AF0C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D09EAF75639C04C025C9252E /* Pods-weatherBOT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
