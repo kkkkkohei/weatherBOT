@@ -6,6 +6,9 @@ target 'weatherBOT' do
   use_frameworks!
   
   pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'NVActivityIndicatorView'
 
   # Pods for weatherBOT
 

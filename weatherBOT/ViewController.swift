@@ -7,25 +7,38 @@
 //
 
 import UIKit
+import MapKit
+import Alamofire
+import SwiftyJSON
+import NVActivityIndicatorView
 import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var weatherImg: UIImageView!
     
     // 通知時間
     var callTime = ""
+    
+    let apiKey = "apikey"
     // 緯度
-    var latitudeNow: String = ""
+    var latitudeNow: Double = 0
     // 経度
-    var longitudeNow: String = ""
+    var longitudeNow: Double = 0
     
     // ロケーションマネージャ
     var locationManager: CLLocationManager!
     
+    // loading
+    var activityIndicator: NVActivityIndicatorView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // 背景設定
         let gradientLayer:CAGradientLayer = CAGradientLayer()
         let startColor = UIColor(red: 2/255.0, green: 173/255.0, blue: 200/255.0, alpha: 1.0).cgColor
         let endColor = UIColor(red: 0/255.0, green: 220/255.0, blue: 172/255.0, alpha: 1.0).cgColor
@@ -49,10 +62,34 @@ class ViewController: UIViewController {
         let status = CLLocationManager.authorizationStatus()
         if status == .denied {
             showAlert()
-        } else if status == .authorizedWhenInUse {
-            print("\(latitudeNow), \(longitudeNow)")
         }
         
+        let indicatorSize: CGFloat = 70
+        let indicatorFrame = CGRect(x: (view.frame.width-indicatorSize)/2, y: (view.frame.height-indicatorSize)/2, width: indicatorSize, height: indicatorSize)
+        activityIndicator = NVActivityIndicatorView(frame: indicatorFrame, type: .lineScale, color: UIColor.white, padding: 20.0)
+        activityIndicator.backgroundColor = UIColor.black
+        view.addSubview(activityIndicator)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        convertGeoCoding()
+        
+        AF.request("api.openweathermap.org/data/2.5/weather?lat=\(latitudeNow)&lon=\(longitudeNow)&appid=\(apiKey)&units=metric").responseJSON {
+            
+            response in
+            
+            self.activityIndicator.stopAnimating()
+            if let responseStr = response.result {
+                let jsonResponse = JSON(responseStr)
+                let jsonWeather = jsonResponse["weather"].array![0]
+                let jsonTemp = jsonResponse["main"]
+                let iconName = jsonWeather["icon"].stringValue
+                
+                self.weatherImg.image = UIImage(named: iconName)
+                print(jsonTemp)
+            }
+        }
     }
     
     
@@ -104,11 +141,20 @@ class ViewController: UIViewController {
         callTime = mySelectedDate as String
         print(callTime)
     }
-
-
-}
-
-extension ViewController: CLLocationManagerDelegate {
+    
+    func convertGeoCoding(){
+        // 逆ジオコーディング
+        let location = CLLocation(latitude: latitudeNow, longitude: longitudeNow)
+        CLGeocoder().reverseGeocodeLocation(location) {placemarks, error in
+            guard
+                let placemark = placemarks?.first, error == nil, let locality = placemark.locality
+                else {
+                    self.locationLabel.text = "位置情報取得を許可して下さい。"
+                    return
+            }
+            self.locationLabel.text = "\(locality)"
+        }
+    }
     
     /// 位置情報が更新された際、位置情報を格納する
     /// - Parameters:
@@ -119,9 +165,14 @@ extension ViewController: CLLocationManagerDelegate {
         let latitude = location?.coordinate.latitude
         let longitude = location?.coordinate.longitude
         // 位置情報を格納する
-        self.latitudeNow = String(latitude!)
-        self.longitudeNow = String(longitude!)
+        self.latitudeNow = latitude!
+        self.longitudeNow = longitude!
+        
+        print("\(latitudeNow), \(longitudeNow)")
         
     }
+
+
 }
+
 

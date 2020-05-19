@@ -72,6 +72,8 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="CyV-fb-FGl" id="jrF-bO-GsM"/>
+                        <outlet property="locationLabel" destination="XYX-Vr-xS7" id="W3l-fX-4Ay"/>
+                        <outlet property="weatherImg" destination="8xu-Qe-SF8" id="TM6-PZ-47T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
