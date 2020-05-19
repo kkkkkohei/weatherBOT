@@ -75,19 +75,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         convertGeoCoding()
         
-        AF.request("api.openweathermap.org/data/2.5/weather?lat=\(latitudeNow)&lon=\(longitudeNow)&appid=\(apiKey)&units=metric").responseJSON {
-            
-            response in
+        AF.request("api.openweathermap.org/data/2.5/weather?lat=\(latitudeNow)&lon=\(longitudeNow)&appid=\(apiKey)&units=metric").responseJSON { response in
             
             self.activityIndicator.stopAnimating()
-            if let responseStr = response.result {
-                let jsonResponse = JSON(responseStr)
-                let jsonWeather = jsonResponse["weather"].array![0]
-                let jsonTemp = jsonResponse["main"]
-                let iconName = jsonWeather["icon"].stringValue
+            switch response.result {
+            case .success(let value):
+                    let jsonResponse = JSON(value)
+                    let jsonWeather = jsonResponse["weather"].array![0]
+                    let jsonTemp = jsonResponse["main"]
+                    let iconName = jsonWeather["icon"].stringValue
                 
-                self.weatherImg.image = UIImage(named: iconName)
-                print(jsonTemp)
+                    // self.weatherImg.image = UIImage(named: iconName)
+                    print(jsonTemp)
+            case .failure(let error):
+                print(error)
             }
         }
     }
