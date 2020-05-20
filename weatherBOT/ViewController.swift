@@ -84,12 +84,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let jsonResponse = JSON(value)
                     let jsonWeather = jsonResponse["weather"].array![0]
                     let jsonTemp = jsonResponse["main"]
-                    let iconName = jsonWeather["icon"].stringValue
+                    let iconName = "animated/\(jsonWeather["icon"].stringValue).svg"
+                    print("アイコン名: \(iconName)")
                 
-                    let svgImage = SVGKImage(named: "iconName")
+                    let svgImage = SVGKImage(named: iconName)
                     svgImage!.size = self.weatherImg.bounds.size
                     self.weatherImg.image = svgImage!.uiImage
-                    print(iconName)
+                    
             case .failure(let error):
                 print(error)
             }
