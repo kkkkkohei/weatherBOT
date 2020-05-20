@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SVGKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
@@ -22,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // 通知時間
     var callTime = ""
     
-    let apiKey = "apikey"
+    let apiKey = "b4f29bf0fadc7c0bb994340267492a0f"
     // 緯度
     var latitudeNow: Double = 0
     // 経度
@@ -75,7 +76,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         convertGeoCoding()
         
-        AF.request("api.openweathermap.org/data/2.5/weather?lat=\(latitudeNow)&lon=\(longitudeNow)&appid=\(apiKey)&units=metric").responseJSON { response in
+        AF.request("https://api.openweathermap.org/data/2.5/weather?lat=\(latitudeNow)&lon=\(longitudeNow)&appid=\(apiKey)&units=metric").responseJSON { response in
             
             self.activityIndicator.stopAnimating()
             switch response.result {
@@ -85,8 +86,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let jsonTemp = jsonResponse["main"]
                     let iconName = jsonWeather["icon"].stringValue
                 
-                    // self.weatherImg.image = UIImage(named: iconName)
-                    print(jsonTemp)
+                    let svgImage = SVGKImage(named: "iconName")
+                    svgImage!.size = self.weatherImg.bounds.size
+                    self.weatherImg.image = svgImage!.uiImage
+                    print(iconName)
             case .failure(let error):
                 print(error)
             }

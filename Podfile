@@ -5,7 +5,7 @@ target 'weatherBOT' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+  pod 'SVGKit'
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'NVActivityIndicatorView'
