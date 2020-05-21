@@ -13,7 +13,6 @@
 		A747B03B2471C1600017AF0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A747B0392471C1600017AF0C /* Main.storyboard */; };
 		A747B03D2471C1640017AF0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A747B03C2471C1640017AF0C /* Assets.xcassets */; };
 		A747B0402471C1640017AF0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A747B03E2471C1640017AF0C /* LaunchScreen.storyboard */; };
-		A747B0492472A7440017AF0C /* animated in Resources */ = {isa = PBXBuildFile; fileRef = A747B0482472A7440017AF0C /* animated */; };
 		C8C200F8DC1D77A93B45878B /* Pods_weatherBOT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06C346BA9A644804B8A0C139 /* Pods_weatherBOT.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +26,6 @@
 		A747B03C2471C1640017AF0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A747B03F2471C1640017AF0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A747B0412471C1640017AF0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A747B0482472A7440017AF0C /* animated */ = {isa = PBXFileReference; lastKnownFileType = folder; path = animated; sourceTree = "<group>"; };
 		D09EAF75639C04C025C9252E /* Pods-weatherBOT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherBOT.release.xcconfig"; path = "Target Support Files/Pods-weatherBOT/Pods-weatherBOT.release.xcconfig"; sourceTree = "<group>"; };
 		F5CAA2A9B0B558FF31690480 /* Pods-weatherBOT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherBOT.debug.xcconfig"; path = "Target Support Files/Pods-weatherBOT/Pods-weatherBOT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,21 +74,12 @@
 				A747B0332471C1600017AF0C /* AppDelegate.swift */,
 				A747B0352471C1600017AF0C /* SceneDelegate.swift */,
 				A747B0372471C1600017AF0C /* ViewController.swift */,
-				A747B0472472A7200017AF0C /* Resources */,
 				A747B0392471C1600017AF0C /* Main.storyboard */,
 				A747B03C2471C1640017AF0C /* Assets.xcassets */,
 				A747B03E2471C1640017AF0C /* LaunchScreen.storyboard */,
 				A747B0412471C1640017AF0C /* Info.plist */,
 			);
 			path = weatherBOT;
-			sourceTree = "<group>";
-		};
-		A747B0472472A7200017AF0C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A747B0482472A7440017AF0C /* animated */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		DEC8709FC7FC055F98E5C3DE /* Pods */ = {
@@ -165,7 +154,6 @@
 				A747B0402471C1640017AF0C /* LaunchScreen.storyboard in Resources */,
 				A747B03D2471C1640017AF0C /* Assets.xcassets in Resources */,
 				A747B03B2471C1600017AF0C /* Main.storyboard in Resources */,
-				A747B0492472A7440017AF0C /* animated in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
