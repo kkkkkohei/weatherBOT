@@ -71,6 +71,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
         
+        // 太間太間
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -147,6 +149,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let mySelectedDate: NSString = myDateFormatter.string(from: sender.date) as NSString
         callTime = mySelectedDate as String
         print(callTime)
+        UserDefaults.standard.set(mySelectedDate, forKey: "call")
     }
     
     func convertGeoCoding(){
@@ -160,6 +163,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     return
             }
             self.locationLabel.text = "\(locality)"
+            UserDefaults.standard.set(locality, forKey: "location")
         }
     }
     
