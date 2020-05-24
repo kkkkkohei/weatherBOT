@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import SVGKit
 import Alamofire
 import SwiftyJSON
 import NVActivityIndicatorView
@@ -71,8 +70,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         activityIndicator.backgroundColor = UIColor.black
         view.addSubview(activityIndicator)
         
-        // 太間太間
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -99,6 +96,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print(error)
             }
         }
+        
+        let callTime = userDefaults.object(forKey: "call")
     }
     
     
@@ -147,8 +146,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // 日付をフォーマットに則って取得.
         let mySelectedDate: NSString = myDateFormatter.string(from: sender.date) as NSString
-        callTime = mySelectedDate as String
-        print(callTime)
         UserDefaults.standard.set(mySelectedDate, forKey: "call")
     }
     
